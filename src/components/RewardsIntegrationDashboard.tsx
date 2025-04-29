@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, Suspense, lazy } from 'react';
-const Avatar3D = lazy(() => import("@/components/Avatar3D"));
+
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -331,50 +330,6 @@ export default function RewardsIntegrationDashboard() {
                 </Card>
               </motion.div>
             </motion.div>
-
-            {/* Cyber Avatar */}
-            <motion.div
-              className="tile glassmorph"
-              variants={itemVariants}
-              whileHover="hover"
-            >
-              <motion.div variants={cardHoverVariants}>
-                <Card className="bg-gradient-to-br from-cyan-900/40 to-cyan-800/40 border-l-4 border-cyan-400 shadow-cyan h-80 backdrop-blur-sm">
-                  <CardHeader>
-                    <CardTitle className="text-cyan-300">Your Cyber Avatar</CardTitle>
-                  </CardHeader>
-                  <CardContent className="h-full">
-                    <Suspense 
-                      fallback={
-                        <motion.div 
-                          className="h-full w-full flex items-center justify-center bg-cyan-900/20 rounded-lg"
-                          animate={{
-                            opacity: [0.5, 1, 0.5],
-                            scale: [0.98, 1, 0.98],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          <div className="animate-pulse text-cyan-400">Loading Avatar...</div>
-                        </motion.div>
-                      }
-                    >
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Avatar3D />
-                      </motion.div>
-                    </Suspense>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </motion.div>
-          </motion.div>
         )}
       </AnimatePresence>
     </div>
